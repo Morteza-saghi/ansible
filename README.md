@@ -21,3 +21,14 @@ Each module is designed to handle a particular type of task
 Ansible expects the configuration file to be named "ansible.cfg"
 
 
+
+some command that i ran already (after puting the ansible.cfg file where is should have been)
+
+ansible all -m ping  ||  -m     to run a module  || all     to all host that you have   
+
+
+
+
+
+
+
