@@ -18,4 +18,6 @@ units of code that can be used to perform specific tasks or actions within an An
 Each module is designed to handle a particular type of task
 
 
+Ansible expects the configuration file to be named "ansible.cfg"
+
 
