@@ -1,7 +1,9 @@
 ---
-- host : all
+- hosts: all
   become: true
-  task:
-  - name : install tmux package 
-    apt : 
-      name:tmux
+  tasks:
+
+
+  - name: install tmux package 
+    apt: 
+      name: tmux
