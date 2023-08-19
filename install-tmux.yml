@@ -1,0 +1,7 @@
+---
+- host : all
+  become: true
+  task:
+  - name : install tmux package 
+    apt : 
+      name:tmux
