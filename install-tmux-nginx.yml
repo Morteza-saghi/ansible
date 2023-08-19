@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+
+  - name: install tmux package 
+    apt: 
+      name: tmux
+
+  - name: install nginx 
+    apt:
+      name: nginx
