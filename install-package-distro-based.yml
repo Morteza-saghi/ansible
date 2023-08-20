@@ -1,0 +1,25 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+
+  - name: installation for debain based
+    apt: 
+      name: tmux
+    when: ansible_distribution in ["Debian", "Ubuntu" ]
+
+
+  - name: installation for red-hat based
+    dnf: 
+      name: tmux
+    when: ansible_distribution in ["CentOS", "fedora" ]
+
+
+
+
+
+# in linux we have diff distros that use diff techs and services some time here is an example
+# for installation red-hat base uses yum and debian bases use apt module but we have no issue  
+# to do this in ansible we can do it like this remember that ansible var like the one we used
+# have case sensivity i said debian and it didnt work so i used Debian
