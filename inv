@@ -1,2 +1,6 @@
-10.0.2.5
-10.0.2.6
+[reza]
+rezauser ansible_host=10.0.2.5
+
+
+[javad]
+javaduser ansible_host=10.0.2.6
