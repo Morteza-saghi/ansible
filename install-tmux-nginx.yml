@@ -1,13 +1,11 @@
 ---
+
 - hosts: all
   become: true
   tasks:
-
-
-  - name: install tmux package 
-    apt: 
-      name: tmux
-
-  - name: install nginx 
-    apt:
-      name: nginx
+    - name: update repos and install tmux and nginx package 
+      apt: 
+        name:
+          - tmux 
+          - nginx
+        update_cache: yes
