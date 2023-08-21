@@ -54,13 +54,24 @@ Ansible all -m apt -a name:tmux —become –ask-become-pass
 
 
 
+Naming hosts servers in ansible inventory 
 
 
+We can assign names to servers in the Ansible inventory and use those names to do operations on them
 
+An example yml file:
 
+[Group-name]
+Assigned-name-to-host      ansible_host=10.0.0.1
+Assigned-name-to-host      ansible_host=10.0.0.2
 
+[Group-name]
+Assigned-name-to-host     ansible_host=10.0.0.3
+Assigned-name-to-host     ansible_host=10.0.0.4
 
+Then do the command like this 
 
+Ansible group-name -m ping 
 
 
 
