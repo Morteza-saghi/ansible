@@ -82,12 +82,12 @@ db2.example.com
 
 ---
 
-#### Roles
+### Roles
 
 Roles are a way to group tasks, variables, files, templates, and handlers. They allow you to organize playbooks into reusable components.
 
 
-Creating a Role
+#### Creating a Role
 
 ```
 ansible-galaxy init my_role
@@ -128,7 +128,7 @@ a task in an Ansible playbook:
 ----
 
 
-#### Handlers
+### Handlers
 
 Handlers are tasks that are triggered by other tasks when there is a change:
 
@@ -214,31 +214,6 @@ host_key_checking = False
 ```
 ---
 
-### Ansible Ad-Hoc Commands
-Ad-hoc commands are used for quick tasks without writing playbooks.
-
-
-Examples
-
-Ping all hosts:
-
-```
-ansible all -m ping
-```
-
-Install a package:
-
-```
-ansible webservers -m yum -a "name=httpd state=present"
-```
-
-Restart a service:
-
-```
-ansible webservers -m service -a "name=httpd state=restarted"
-```
----
-
 ### Ansible Playbooks
 #### Introduction to Playbooks
 Playbooks are the heart of Ansible, where you define configurations, deployment steps, and orchestrate tasks.
@@ -262,6 +237,33 @@ A basic playbook is structured as follows:
 ```
 ---
 
+
+### Ansible Ad-Hoc Commands
+Ad-hoc commands are used for quick tasks without writing playbooks.
+
+
+Examples
+
+Ping all hosts:
+
+```
+ansible all -m ping
+```
+
+Install a package:
+
+```
+ansible webservers -m yum -a "name=httpd state=present"
+```
+
+Restart a service:
+
+```
+ansible webservers -m service -a "name=httpd state=restarted"
+```
+
+
+---
 
 #### Conditionals
 
