@@ -80,6 +80,105 @@ db2.example.com
 ```
 
 
+---
+
+#### Roles
+
+Roles are a way to group tasks, variables, files, templates, and handlers. They allow you to organize playbooks into reusable components.
+
+
+Creating a Role
+
+```
+ansible-galaxy init my_role
+```
+
+#### Using a Role in a Playbook
+
+```
+---
+- hosts: webservers
+  roles:
+    - my_role
+```
+---
+
+### Ansible Tasks
+tasks are the basic units of work that define actions to be performed on managed nodes.In Ansible, tasks are the basic units of work that define actions to be performed on managed nodes. Each task in Ansible corresponds to a single action or step in a playbook, such as installing a package, copying a file, or restarting a service. Tasks are executed in the order they are listed in a playbook, and Ansible ensures that each task is idempotent, meaning that it can be run multiple times without changing the system beyond its desired state.
+
+
+
+a task in an Ansible playbook:
+```
+---
+- hosts: webservers
+  tasks:
+    - name: Install Apache HTTP Server
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start Apache Service
+      service:
+        name: httpd
+        state: started
+```
+
+
+----
+
+
+#### Handlers
+
+Handlers are tasks that are triggered by other tasks when there is a change:
+
+```
+---
+- hosts: webservers
+  tasks:
+    - name: Update Apache config
+      template:
+        src: /path/to/httpd.conf.j2
+        dest: /etc/httpd/conf/httpd.conf
+      notify:
+        - Restart Apache
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: httpd
+        state: restarted
+```
+---
+
+### Modules in Ansible
+Modules are the workhorses of Ansible. They perform specific tasks like managing packages, services, files, and more.
+
+Commonly Used Modules
+
+- **package**: Manage packages
+- **service**: Manage services
+- **file**: Manage files and directories
+- **copy**: Copy files to remote machines
+- **template**: Manage file templates
+- **command**: Run commands on remote hosts
+- **shell**: Execute shell commands on remote hosts
+
+#### Custom Modules
+
+You can write your own modules in any language (e.g., Python, Bash).
+
+
+
+
+---
+
+### Plugins
+Pieces of code that expand Ansible’s core capabilities. Plugins can control how you connect to a managed node (connection plugins), manipulate data (filter plugins) and even control what is displayed in the console (callback plugins).
+
+
+---
+
 #### Grouping and Variables
 
 You can group hosts and assign variables to them:
@@ -138,6 +237,7 @@ Restart a service:
 ```
 ansible webservers -m service -a "name=httpd state=restarted"
 ```
+---
 
 ### Ansible Playbooks
 #### Introduction to Playbooks
@@ -160,29 +260,8 @@ A basic playbook is structured as follows:
         name: httpd
         state: started
 ```
-
-
-#### Handlers
-
-Handlers are tasks that are triggered by other tasks when there is a change:
-
-```
 ---
-- hosts: webservers
-  tasks:
-    - name: Update Apache config
-      template:
-        src: /path/to/httpd.conf.j2
-        dest: /etc/httpd/conf/httpd.conf
-      notify:
-        - Restart Apache
 
-  handlers:
-    - name: Restart Apache
-      service:
-        name: httpd
-        state: restarted
-```
 
 #### Conditionals
 
@@ -199,6 +278,7 @@ You can use when to run tasks conditionally:
       when: ansible_facts['os_family'] == "RedHat"
 ```
 
+---
 
 #### Loops
 
@@ -217,44 +297,9 @@ Loops allow you to repeat tasks for a list of items:
         - php
         - mysql-server
 ```
-
-#### Roles
-
-Roles are a way to group tasks, variables, files, templates, and handlers. They allow you to organize playbooks into reusable components.
-
-
-Creating a Role
-
-```
-ansible-galaxy init my_role
-```
-
-#### Using a Role in a Playbook
-
-```
 ---
-- hosts: webservers
-  roles:
-    - my_role
-```
 ---
 
-### Modules in Ansible
-Modules are the workhorses of Ansible. They perform specific tasks like managing packages, services, files, and more.
-
-Commonly Used Modules
-
-- **package**: Manage packages
-- **service**: Manage services
-- **file**: Manage files and directories
-- **copy**: Copy files to remote machines
-- **template**: Manage file templates
-- **command**: Run commands on remote hosts
-- **shell**: Execute shell commands on remote hosts
-
-#### Custom Modules
-
-You can write your own modules in any language (e.g., Python, Bash).
 
 #### Working with Ansible Vault
 
