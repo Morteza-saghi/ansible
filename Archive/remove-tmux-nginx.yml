@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+
+  - name: remove tmux package 
+    apt: 
+      name: tmux
+      state: absent
+
+  - name: remove nginx 
+    apt:
+      name: nginx
+      state: absent

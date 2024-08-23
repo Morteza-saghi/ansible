@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+    - name: update repos and install tmux and nginx package 
+      apt: 
+        name:
+          - tmux 
+          - nginx
+        update_cache: yes
