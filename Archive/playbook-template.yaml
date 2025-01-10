@@ -1,0 +1,29 @@
+---
+- name: Example Playbook
+  hosts: all
+  become: true
+
+  vars:
+    example_variable: "Hello, World!"
+
+  tasks:
+    - name: Ensure the latest version of a package is installed
+      yum:
+        name: httpd
+        state: latest
+
+    - name: Start the Apache service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+    - name: Create a file with specific content
+      copy:
+        dest: /tmp/example.txt
+        content: "{{ example_variable }}"
+
+    - name: Ensure a line is present in a file
+      lineinfile:
+        path: /etc/example.conf
+        line: "example configuration"
