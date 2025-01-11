@@ -46,11 +46,10 @@ ansible-playbook playbook.yml
   hosts: all
 
   tasks:
-    - name: create the directory
-      file:
-        recurse: yes #  make it recursive of the other directorys dosent exist make them too 
-        path: /home/shit
-        state: directory
-        mode: 0755
+    - name: add a file with content to the directory
+      copy:
+        src: ./thisfile
+        dest: /path/to/dir/
+        mode: 0700
 ```
 
