@@ -39,3 +39,18 @@ Use the ansible-playbook command to execute your playbook:
 ansible-playbook playbook.yml
 ```
 
+#### Here is an example 
+
+```
+- name: create a dire
+  hosts: all
+
+  tasks:
+    - name: create the directory
+      file:
+        recurse: yes #  make it recursive of the other directorys dosent exist make them too 
+        path: /home/shit
+        state: directory
+        mode: 0755
+```
+
