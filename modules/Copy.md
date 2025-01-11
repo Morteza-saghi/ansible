@@ -32,7 +32,7 @@ A playbook is a YAML file that defines tasks to be executed on remote servers. H
 
 - *mode*: (Optional) The permissions for the file.
 
-3. Run the Playbook
+### 3. Run the Playbook
 Use the ansible-playbook command to execute your playbook:
 
 ```
