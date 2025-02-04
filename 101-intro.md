@@ -1,4 +1,4 @@
-# Ansible Learning Guide
+# Ansible
 
 ---
 
