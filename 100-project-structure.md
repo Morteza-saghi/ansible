@@ -24,32 +24,40 @@ your_ansible_project/
 
 ### Explanation of Each Directory/File:
 
-**ansible.cfg**: Configuration file for Ansible settings.
+*ansible.cfg*: Configuration file for Ansible settings.
 
-**inventory/**: Contains the inventory file.
+*inventory/*: Contains the inventory file.
 
-**hosts**: Defines the list of hosts and groups.
+*hosts**: Defines the list of hosts and groups.
 
-**group_vars/**: Stores group-specific variables.
+*group_vars/*: Stores group-specific variables.
 
-**all.yml**: Variables applicable to all hosts.
+*all.yml*: Variables applicable to all hosts.
 
-**host_vars/**: Stores host-specific variables.
+*host_vars/*: Stores host-specific variables.
 
-**server1.yml**: Variables specific to server1.
+*server1.yml*: Variables specific to server1.
 
-**roles/**: Directory for roles.
+*roles/*: Directory for roles.
 
-**common/**: Example role for common tasks.
+*common/*: Example role for common tasks.
 
-**tasks/main.yml**: Defines tasks to be executed.
+*tasks/main.yml*: Defines tasks to be executed.
 
-**templates/**: Stores template files.
+*templates/*: Stores template files.
 
-**playbooks/**: Stores playbooks.
+*playbooks/*: Stores playbooks.
 
-**site.yml**: Main playbook.
+*site.yml*: Main playbook.
 
-**webserver.yml**: Playbook specific to web servers.
+*webserver.yml*: Playbook specific to web servers.
 
-**README.md**: Documentation for the project.
+*README.md*: Documentation for the project.
+
+
+
+This structure can be done using the 
+```
+ansible-galaxy init roles/my_role
+```
+
